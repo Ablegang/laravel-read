@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Test2Middleware;
+use App\Http\Middleware\TestMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -21,6 +23,18 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrustProxies::class,
     ];
 
+    protected $middlewarePriority = [
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Illuminate\Auth\Middleware\Authenticate::class,
+        \Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Illuminate\Auth\Middleware\Authorize::class,
+
+        Test2Middleware::class,
+        TestMiddleware::class,
+    ];
+
     /**
      * The application's route middleware groups.
      *
@@ -35,6 +49,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            TestMiddleware::class,
+            Test2Middleware::class,
         ],
 
         'api' => [
