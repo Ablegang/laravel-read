@@ -8,7 +8,7 @@ class TestMiddleware
 {
     public function handle($request, \Closure $next)
     {
-        echo 1;
+        // echo 1;
         return $next($request);
     }
 

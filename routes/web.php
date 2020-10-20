@@ -50,3 +50,7 @@ Route::get('menu-commit', function () {
 
     dd(1);
 });
+
+Route::get('facade', function () {
+    return User::getUser(1);
+});

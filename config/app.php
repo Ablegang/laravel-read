@@ -191,6 +191,7 @@ return [
     */
 
     'aliases' => [
+        'User'=>\Facades\App\Logics\UserLogic::class,
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
